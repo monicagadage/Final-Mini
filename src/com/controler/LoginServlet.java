@@ -14,20 +14,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.duo.resgistrationjdbc;
-import com.model.login;
-import com.model.registration;
+import com.duo.Resgistrationjdbc;
+import com.model.Login;
+import com.model.Registration;
 
 /**
  * Servlet implementation class loginServlet
  */
-public class loginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -51,8 +51,8 @@ public class loginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		login l = new login();
-		registration r = new registration(l);
+		Login l = new Login();
+		Registration r = new Registration(l);
 		r.setUsername(username);
 		r.setPassword(password);
 		
@@ -61,10 +61,10 @@ public class loginServlet extends HttpServlet {
 		
 	
 		
-		List<registration> lst = new ArrayList<registration>();
+		List<Registration> lst = new ArrayList<Registration>();
 		lst.add(r);
 		
-		resgistrationjdbc rj = new resgistrationjdbc();
+		Resgistrationjdbc rj = new Resgistrationjdbc();
 		Boolean b = rj.validateData(lst);
 		
 		if(b==true) {
@@ -72,7 +72,7 @@ public class loginServlet extends HttpServlet {
 			// session if exist
 			// or create one
 			session.setAttribute("user", r.getUsername());
-			response.sendRedirect("NewFile.jsp");
+			response.sendRedirect("home1.jsp");
 			
 		}
 		else {

@@ -17,9 +17,9 @@ import javax.servlet.http.HttpSession;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import com.duo.resgistrationjdbc;
-import com.model.login;
-import com.model.registration;
+import com.duo.Resgistrationjdbc;
+import com.model.Login;
+import com.model.Registration;
 import com.sun.prism.paint.Color;
 
 /**
@@ -49,44 +49,37 @@ public class PaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		login l= new login();
+		Login l= new Login();
 		
-		registration r = new registration(l);
-		resgistrationjdbc rj = new resgistrationjdbc();
+		Registration r = new Registration(l);
+		Resgistrationjdbc rj = new Resgistrationjdbc();
 		HttpSession session = request.getSession(false);
 		String name = (String)session.getAttribute("user");
 		System.out.println(name);
 		
 	
 		PrintWriter out = response.getWriter();
-		Boolean b = rj.Payment(name);
+		Boolean b = rj.Payment(name);	
 	
-		
-		
-		
-		
-	if(b==true) {
+		if(b==true) {
 		
 		request.setAttribute("message", "payment successfull)" );
-	String message = (String) request.getAttribute("message");
+		String message = (String) request.getAttribute("message");
 			
 		response.setContentType("text/html");
 		
-	out.println("<h3>thankyou "+name+ "</h3>"+"for enrolling ");
-	out.println("<br><h3>"+message);
-	out.print(rj.billHTML(name));
+		out.println("<h3>thankyou "+name+ "</h3>"+"for enrolling ");
+		out.println("<br><h3>"+message);
+		out.print(rj.billHTML(name));
 		
-	}
-	else {
+		}
+		else {
 		request.setAttribute("message", "not enough balance");
-		
-		
-	}
-	ArrayList<registration> lst = rj.bill(name);
-	
-	request.setAttribute("display", lst);
-	RequestDispatcher dispatcher = request.getRequestDispatcher("bil.jsp");
-	dispatcher.forward(request, response);
+		}
+		ArrayList<Registration> lst = rj.bill(name);
+		request.setAttribute("display", lst);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("bil.jsp");
+		dispatcher.forward(request, response);
 //	session.setAttribute("display", lst);
 //	response.sendRedirect("bill.jsp");
 	

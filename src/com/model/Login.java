@@ -1,14 +1,14 @@
 package com.model;
 
-public class login {
+public class Login {
 
 	private String username;
 	private String password;
 	
-	public login() {
+	public Login() {
 	}
 
-	public login(String username, String password) {
+	public Login(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}

@@ -10,7 +10,7 @@
 
 </head>
 <body>
- <form action="registrationservlet" method="post">
+ <form action="RegistrationServlet" method="post">
 <div class="signup__container">
   <div class="container__child signup__thumbnail">
     <div class="thumbnail__logo">

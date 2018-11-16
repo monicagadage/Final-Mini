@@ -1,23 +1,23 @@
                                                                                                                                                                                                                                                                                                                                            package com.model;
 
-public class registration {
+public class Registration {
 
 	private String email;
 	private long phoneNO;
-	private login login;
+	private Login Login;
 	private int cost;
 	
-	public registration(login login) {
-		this.login = login;
+	public Registration(Login Login) {
+		this.Login = Login;
 	}
 
-	public registration(String email, int phoneNO, login login) {
+	public Registration(String email, int phoneNO, Login Login) {
 		this.email = email;
 		this.phoneNO = phoneNO;
-		this.login = login;
+		this.Login = Login;
 	}
 
-	public registration() {
+	public Registration() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -37,28 +37,28 @@ public class registration {
 		this.phoneNO = phoneNO;
 	}
 
-	public login getLogin() {
-		return login;
+	public Login getLogin() {
+		return Login;
 	}
 
-	public void setLogin(login login) {
-		this.login = login;
+	public void setLogin(Login Login) {
+		this.Login = Login;
 	}
 
 	public String getUsername() {
-		return login.getUsername();
+		return Login.getUsername();
 	}
 
 	public void setUsername(String username) {
-		login.setUsername(username);
+		Login.setUsername(username);
 	}
 
 	public String getPassword() {
-		return login.getPassword();
+		return Login.getPassword();
 	}
 
 	public void setPassword(String password) {
-		login.setPassword(password);
+		Login.setPassword(password);
 	}
 
 	public int getCost() {

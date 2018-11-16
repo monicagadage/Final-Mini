@@ -28,7 +28,7 @@
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form">
-    <form action="loginServlet" method="post">
+    <form action="LoginServlet" method="post">
       <div class="form-group">
         <label for="username">Username</label>
         <input class="form-control" type="text" name="username" id="username" placeholder="Enter userId" required />

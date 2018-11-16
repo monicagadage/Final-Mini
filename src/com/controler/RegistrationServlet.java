@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.duo.resgistrationjdbc;
-import com.model.login;
-import com.model.registration;
+import com.duo.Resgistrationjdbc;
+import com.model.Login;
+import com.model.Registration;
 
 /**
  * Servlet implementation class registrationservlet
  */
-public class registrationservlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public registrationservlet() {
+    public RegistrationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -55,22 +55,22 @@ public class registrationservlet extends HttpServlet {
 		String password = request.getParameter("password");
 		int Balance = Integer.parseInt(request.getParameter("Balance"));
 		
-		login l = new login();
-		registration r = new registration(l);
+		Login l = new Login();
+		Registration r = new Registration(l);
 		
 		r.setEmail(email);
 		r.setUsername(username);
 		r.setPassword(password);
 		r.setPhoneNO(phoneno);
 		r.setCost(Balance);
-		List<registration> lst = new ArrayList<registration>();
+		List<Registration> lst = new ArrayList<Registration>();
 		lst.add(r);
 		
-		resgistrationjdbc rj = new resgistrationjdbc();
+		Resgistrationjdbc rj = new Resgistrationjdbc();
 		int i = rj.saveData(lst);
 		if(i>0) {
 			
-			out.write("<script language='javascript'>window.alert('You have successfully registered yourself -- Login to continue');window.location='First.jsp';</script>");
+			out.write("<script language='javascript'>window.alert('You have successfully registered yourself -- Login to continue');window.location='home1.jsp';</script>");
 			
 			/*response.sendRedirect("Login.jsp");*/
 			

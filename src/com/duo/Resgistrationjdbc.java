@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 
 
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,17 +15,15 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import com.model.Registration;
 
-import javax.servlet.Registration;
-
-import com.model.login;
-import com.model.registration;
+import com.model.Login;
 import com.sun.prism.paint.Color;
 
 
 
 
-public class resgistrationjdbc {
+public class Resgistrationjdbc {
 
 	Connection con;
 	PreparedStatement ps,ps1,ps2;
@@ -47,10 +46,10 @@ public class resgistrationjdbc {
 		}
 		return con;
 	}
-	public int saveData(List<registration> lst){
+	public int saveData(List<Registration> lst){
 		
 		
-		registration r = (registration)lst.get(0);
+		Registration r = (Registration)lst.get(0);
 		try {
 			con=myConnection();
 			ps=con.prepareStatement("insert into Register values(?,?,?,?,?)");
@@ -70,8 +69,9 @@ public class resgistrationjdbc {
 		}
 		return i;
 	}
+// To Make Payment For course
 public boolean Payment(String name ){
-	/*registration r = (registration)lst.get(0);*/
+	
 	boolean temp = true;
 	try {
 		con=myConnection();
@@ -79,7 +79,7 @@ public boolean Payment(String name ){
 		ps.setString(1, name);
 		rs = ps.executeQuery();
 		
-		registration r = new registration();
+		Registration r = new Registration();
 		while(rs.next()) {
 			r.setCost(rs.getInt(1));
 			int j =r.getCost();
@@ -110,22 +110,23 @@ public boolean Payment(String name ){
 			
 	}catch(Exception e)
 	{
-		System.out.println("failed");
+		
 	}
 	
 	return temp;
 }
-public ArrayList<registration> bill(String name){
+//to generate bill
+public ArrayList<Registration> bill(String name){
 	
-	ArrayList<registration> list = new ArrayList<registration>();
+	ArrayList<Registration> list = new ArrayList<Registration>();
 	String sql = "SELECT * FROM bill where username= ?";
 	 try {
 	PreparedStatement st = con.prepareStatement(sql);
 	st.setString(1, name);
 	 ResultSet rs = st.executeQuery();
 	 while(rs.next()) {
-		 login l = new login();
-	registration r = new registration(l);
+		 Login l = new Login();
+	Registration r = new Registration(l);
 	r.setUsername(rs.getString(1));
 	r.setCost(rs.getInt(2));
 	list.add(r);
@@ -138,10 +139,10 @@ public ArrayList<registration> bill(String name){
 	
 }
 	
-	
-	public Boolean validateData(List<registration> lst) {
+	//to validate data during signup
+	public Boolean validateData(List<Registration> lst) {
 		
-		registration r = (registration)lst.get(0);
+		Registration r = (Registration)lst.get(0);
 		Boolean temp=false;
 		try {
 			con=myConnection();
@@ -156,16 +157,16 @@ public ArrayList<registration> bill(String name){
 		}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			
 		}
 	
 		return temp;
 	}
 	
-	
-	public List<registration> getAllData()
+	// to display all data if needed
+	public List<Registration> getAllData()
 	{
-		List<registration> lst=new LinkedList<registration>();
+		List<Registration> lst=new LinkedList<Registration>();
 		con=myConnection();
 		try
 		{
@@ -176,7 +177,7 @@ public ArrayList<registration> bill(String name){
 			rs=s.executeQuery("select * from Register");
 			while(rs.next())
 			{
-				registration a=new registration();
+				Registration a=new Registration();
 				
 				a.setUsername(rs.getString(1));
 				a.setEmail(rs.getString(2));
@@ -189,11 +190,11 @@ public ArrayList<registration> bill(String name){
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+			
 		}
 		return lst;
 	}
-		
+	//generate bill on html page 	
 	public String billHTML(String name) {
 		con=myConnection();
 
@@ -263,7 +264,7 @@ public ArrayList<registration> bill(String name){
 	                + "</table>");
 	        }
 	    } catch (SQLException e) {
-	        System.out.println(e.getMessage());
+	       
 	    }
 	    return sb.toString();
 	}

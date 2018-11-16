@@ -43,7 +43,7 @@ public class RegistrationErrorServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println("<h3 style='color:red'>"+message+"</h3>");
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("first.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("registration.jsp");
 		dispatcher.include(request, response);
 	}
 	}

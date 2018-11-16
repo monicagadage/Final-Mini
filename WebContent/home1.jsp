@@ -113,7 +113,7 @@
      
        <a href="C++.jsp" class="list-group-item ">C++</a>
         
-    <a href="Payton.jsp" class="list-group-item ">Phyton</a>
+    <a href="Phyton.jsp" class="list-group-item ">Phyton</a>
         
   </div>
         </div>

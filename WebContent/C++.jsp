@@ -9,7 +9,7 @@
 				String name = (String) session.getAttribute("user");
 				out.print("<b>Hello, " + name + "</b>");
 			} else {
-				response.sendRedirect("Signup.html");
+				response.sendRedirect("Signup.jsp");
 			}
 		}
 	%>
@@ -52,7 +52,7 @@
          
    <li class="nav-item active">
             
-  <a class="nav-link" href="#">Home
+  <a class="nav-link" href="home1.jsp">Home
               
   <span class="sr-only">(current)</span>
            
@@ -74,7 +74,7 @@
           
   <li class="nav-item">
           
-    <a class="nav-link" href="#">Contact</a>
+    <a class="nav-link" href="Signup.jsp">Logout</a>
        
      </li>
           </ul>

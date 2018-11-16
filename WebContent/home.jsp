@@ -54,15 +54,11 @@
           
   </li>
           
-  <li class="nav-item">
-          
-    <a class="nav-link" href="NewFile.jsp">About</a>
-       
-     </li>
+  
          
    <li class="nav-item">
          
-     <a class="nav-link" href="First.jsp">Register</a>
+     <a class="nav-link" href="registration.jsp">Register</a>
           
   </li>
           
