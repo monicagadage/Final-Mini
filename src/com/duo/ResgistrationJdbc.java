@@ -23,7 +23,7 @@ import com.sun.prism.paint.Color;
 
 
 
-public class Resgistrationjdbc {
+public class ResgistrationJdbc {
 
 	Connection con;
 	PreparedStatement ps,ps1,ps2;

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.duo.Resgistrationjdbc;
+import com.duo.ResgistrationJdbc;
 import com.model.Login;
 import com.model.Registration;
 
@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 		List<Registration> lst = new ArrayList<Registration>();
 		lst.add(r);
 		
-		Resgistrationjdbc rj = new Resgistrationjdbc();
+		ResgistrationJdbc rj = new ResgistrationJdbc();
 		Boolean b = rj.validateData(lst);
 		
 		if(b==true) {

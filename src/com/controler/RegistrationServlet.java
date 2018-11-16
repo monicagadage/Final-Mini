@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.duo.Resgistrationjdbc;
+import com.duo.ResgistrationJdbc;
 import com.model.Login;
 import com.model.Registration;
 
@@ -66,7 +66,7 @@ public class RegistrationServlet extends HttpServlet {
 		List<Registration> lst = new ArrayList<Registration>();
 		lst.add(r);
 		
-		Resgistrationjdbc rj = new Resgistrationjdbc();
+		ResgistrationJdbc rj = new ResgistrationJdbc();
 		int i = rj.saveData(lst);
 		if(i>0) {
 			

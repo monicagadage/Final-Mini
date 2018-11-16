@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import com.duo.Resgistrationjdbc;
+import com.duo.ResgistrationJdbc;
 import com.model.Login;
 import com.model.Registration;
 import com.sun.prism.paint.Color;
@@ -52,7 +52,7 @@ public class PaymentServlet extends HttpServlet {
 		Login l= new Login();
 		
 		Registration r = new Registration(l);
-		Resgistrationjdbc rj = new Resgistrationjdbc();
+		ResgistrationJdbc rj = new ResgistrationJdbc();
 		HttpSession session = request.getSession(false);
 		String name = (String)session.getAttribute("user");
 		System.out.println(name);
